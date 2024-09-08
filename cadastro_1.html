@@ -1,114 +1,112 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema de Recebimento de Estagiários - Painel de Suporte</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    .container {
-      width: 90%;
-      margin: auto;
-      overflow: hidden;
-      padding: 20px;
-    }
-    header {
-      background: #35424a;
-      color: #ffffff;
-      padding-top: 30px;
-      min-height: 70px;
-      border-bottom: #1d83e8 3px solid;
-    }
-    header a {
-      color: #ffffff;
-      text-decoration: none;
-      text-transform: uppercase;
-      font-size: 16px;
-    }
-    header ul {
-      padding: 0;
-      list-style: none;
-    }
-    header li {
-      display: inline;
-      padding: 0 20px;
-    }
-    header #branding {
-      float: left;
-    }
-    header #branding h1 {
-      margin: 0;
-    }
-    header nav {
-      float: right;
-      margin-top: 10px;
-    }
-    .highlight, header .current a {
-      color: #1d97e8;
-      font-weight: bold;
-    }
-    .panel {
-      background: #fff;
-      border-radius: 5px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .panel h2 {
-      color: #35424a;
-      border-bottom: 1px solid #e8e8e8;
-      padding-bottom: 10px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="password"],
-    .form-group input[type="date"],
-    .form-group select {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
-    .btn {
-      display: inline-block;
-      background: #1d7fe8;
-      color: #ffffff;
-      padding: 10px 20px;
-      text-decoration: none;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #333;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    table, th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #35424a;
-      color: white;
-    }
-  </style>
+<html><head><base href="https://example.com/estagio-sistema/cadastro.html/index.html/admin/suporte">
+<title>Sistema de Recebimento de Estagiários - Painel de Suporte</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  .container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+  }
+  header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #1d83e8 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header ul {
+    padding: 0;
+    list-style: none;
+  }
+  header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  .highlight, header .current a {
+    color: #1d97e8;
+    font-weight: bold;
+  }
+  .panel {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .panel h2 {
+    color: #35424a;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 10px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="password"],
+  .form-group input[type="date"],
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .btn {
+    display: inline-block;
+    background: #1d7fe8;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: #333;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #35424a;
+    color: white;
+  }
+</style>
 </head>
 <body>
   <header>
@@ -143,7 +141,7 @@
         </div>
         <div class="form-group">
           <label for="adminEmail">Email:</label>
-          <input type="email" id="adminEmail" name="adminEmail" required>
+          <input type="text" id="adminEmail" name="adminEmail" required>
         </div>
         <div class="form-group">
           <label for="adminPassword">Senha:</label>
@@ -222,4 +220,28 @@
     });
 
     document.getElementById('localEstagioForm').addEventListener('submit', function(e) {
-      e
+      e.preventDefault();
+      const nome = document.getElementById('localNome').value;
+      
+      // Aqui você faria uma chamada AJAX para o backend para salvar os dados
+      console.log('Novo local de estágio:', { nome });
+      alert('Local de estágio cadastrado com sucesso!');
+      this.reset();
+    });
+
+    // Simulação de login automático para teste
+    window.addEventListener('load', function() {
+      const testLogin = {
+        username: 'admin',
+        password: 'admin@123Mudar'
+      };
+      
+      // Aqui você faria uma verificação real com o backend
+      if (testLogin.username === 'admin' && testLogin.password === 'admin@123Mudar') {
+        localStorage.setItem('isLoggedIn', 'true');
+        console.log('Login de teste bem-sucedido');
+      }
+    });
+  </script>
+</body>
+</html>
