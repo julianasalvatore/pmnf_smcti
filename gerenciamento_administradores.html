@@ -1,0 +1,380 @@
+<html><head><base href="https://example.com/estagio-sistema/cadastro.html/index.html/admin/suporte/administradores.html">
+<title>Sistema de Recebimento de Estagiários - Gerenciamento de Administradores</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  .container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+  }
+  header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header ul {
+    padding: 0;
+    list-style: none;
+  }
+  header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  .panel {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .panel h2 {
+    color: #35424a;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 10px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="password"],
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .btn {
+    display: inline-block;
+    background: #e8491d;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: #333;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #35424a;
+    color: white;
+  }
+  .action-btn {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+  .edit-btn {
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    border-radius: 3px;
+  }
+  .delete-btn {
+    background-color: #ff4136;
+    color: white;
+    border: none;
+    border-radius: 3px;
+  }
+  .password-btn {
+    background-color: #0074D9;
+    color: white;
+    border: none;
+    border-radius: 3px;
+  }
+  #modalBackground {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  #modalContent {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    border-radius: 5px;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Gerenciamento</span> de Administradores</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Dashboard</a></li>
+          <li class="current"><a href="administradores.html">Administradores</a></li>
+          <li><a href="../instituicoes.html">Instituições</a></li>
+          <li><a href="../locais-estagio.html">Locais de Estágio</a></li>
+          <li><a href="../logout.html">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="panel">
+      <h2>Cadastrar Novo Administrador</h2>
+      <form id="adminForm">
+        <div class="form-group">
+          <label for="adminNome">Nome:</label>
+          <input type="text" id="adminNome" name="adminNome" required>
+        </div>
+        <div class="form-group">
+          <label for="adminEmail">Email:</label>
+          <input type="email" id="adminEmail" name="adminEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="adminSenha">Senha:</label>
+          <input type="password" id="adminSenha" name="adminSenha" required>
+        </div>
+        <div class="form-group">
+          <label for="adminSetor">Setor:</label>
+          <select id="adminSetor" name="adminSetor" required>
+            <option value="">Selecione um setor</option>
+            <option value="RH">Recursos Humanos</option>
+            <option value="TI">Tecnologia da Informação</option>
+            <option value="Financeiro">Financeiro</option>
+            <option value="Administrativo">Administrativo</option>
+            <option value="Coordenação de Estágio">Coordenação de Estágio</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Cadastrar Administrador</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Lista de Administradores</h2>
+      <div id="adminList"></div>
+    </div>
+  </div>
+
+  <div id="modalBackground">
+    <div id="modalContent">
+      <span class="close">&times;</span>
+      <h3>Alterar Senha</h3>
+      <form id="changePasswordForm">
+        <div class="form-group">
+          <label for="newPassword">Nova Senha:</label>
+          <input type="password" id="newPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirmar Nova Senha:</label>
+          <input type="password" id="confirmPassword" required>
+        </div>
+        <button type="submit" class="btn">Salvar Nova Senha</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Simulação de autenticação
+    function checkAuth() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (!isLoggedIn) {
+        window.location.href = '../login.html';
+      }
+    }
+
+    // Chamada da função de verificação de autenticação
+    checkAuth();
+
+    // Armazenamento local para administradores
+    let administradores = JSON.parse(localStorage.getItem('administradores')) || [];
+
+    // Função para manipulação do formulário
+    document.getElementById('adminForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = document.getElementById('adminNome').value;
+      const email = document.getElementById('adminEmail').value;
+      const senha = document.getElementById('adminSenha').value;
+      const setor = document.getElementById('adminSetor').value;
+      
+      const novoAdmin = { id: Date.now(), nome, email, senha, setor };
+      administradores.push(novoAdmin);
+      localStorage.setItem('administradores', JSON.stringify(administradores));
+      
+      alert('Administrador cadastrado com sucesso!');
+      this.reset();
+      atualizarListaAdmins();
+    });
+
+    function atualizarListaAdmins() {
+      const lista = document.getElementById('adminList');
+      if (administradores.length === 0) {
+        lista.innerHTML = '<p>Nenhum administrador cadastrado.</p>';
+        return;
+      }
+      let tabela = '<table><tr><th>Nome</th><th>Email</th><th>Setor</th><th>Ações</th></tr>';
+      administradores.forEach(admin => {
+        tabela += `<tr>
+          <td>${admin.nome}</td>
+          <td>${admin.email}</td>
+          <td>${admin.setor}</td>
+          <td>
+            <button class="action-btn edit-btn" onclick="editarAdmin(${admin.id})">Editar</button>
+            <button class="action-btn delete-btn" onclick="excluirAdmin(${admin.id})">Excluir</button>
+            <button class="action-btn password-btn" onclick="abrirModalSenha(${admin.id})">Alterar Senha</button>
+          </td>
+        </tr>`;
+      });
+      tabela += '</table>';
+      lista.innerHTML = tabela;
+    }
+
+    function editarAdmin(id) {
+      const admin = administradores.find(a => a.id === id);
+      if (admin) {
+        document.getElementById('adminNome').value = admin.nome;
+        document.getElementById('adminEmail').value = admin.email;
+        document.getElementById('adminSenha').value = admin.senha;
+        document.getElementById('adminSetor').value = admin.setor;
+        
+        // Alterar o formulário para modo de edição
+        const form = document.getElementById('adminForm');
+        form.onsubmit = function(e) {
+          e.preventDefault();
+          admin.nome = document.getElementById('adminNome').value;
+          admin.email = document.getElementById('adminEmail').value;
+          admin.senha = document.getElementById('adminSenha').value;
+          admin.setor = document.getElementById('adminSetor').value;
+          
+          localStorage.setItem('administradores', JSON.stringify(administradores));
+          alert('Administrador atualizado com sucesso!');
+          this.reset();
+          atualizarListaAdmins();
+          
+          // Restaurar o formulário para modo de cadastro
+          form.onsubmit = null;
+        };
+      }
+    }
+
+    function excluirAdmin(id) {
+      if (confirm('Tem certeza que deseja excluir este administrador?')) {
+        administradores = administradores.filter(a => a.id !== id);
+        localStorage.setItem('administradores', JSON.stringify(administradores));
+        atualizarListaAdmins();
+      }
+    }
+
+    // Modal para alteração de senha
+    const modal = document.getElementById('modalBackground');
+    const closeBtn = document.getElementsByClassName('close')[0];
+    let adminIdAtual;
+
+    function abrirModalSenha(id) {
+      adminIdAtual = id;
+      modal.style.display = 'block';
+    }
+
+    closeBtn.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    document.getElementById('changePasswordForm').onsubmit = function(e) {
+      e.preventDefault();
+      const newPassword = document.getElementById('newPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      if (newPassword !== confirmPassword) {
+        alert('As senhas não coincidem. Por favor, tente novamente.');
+        return;
+      }
+
+      const admin = administradores.find(a => a.id === adminIdAtual);
+      if (admin) {
+        admin.senha = newPassword;
+        localStorage.setItem('administradores', JSON.stringify(administradores));
+        alert('Senha alterada com sucesso!');
+        modal.style.display = 'none';
+        this.reset();
+      }
+    }
+
+    // Inicializar lista
+    atualizarListaAdmins();
+
+    // Simulação de login automático para teste (mantenha isso apenas para desenvolvimento)
+    window.addEventListener('load', function() {
+      localStorage.setItem('isLoggedIn', 'true');
+    });
+  </script>
+</body>
+</html>

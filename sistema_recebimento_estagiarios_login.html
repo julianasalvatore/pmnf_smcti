@@ -1,0 +1,118 @@
+<html><head><base href="../login.html">
+<title>Sistema de Recebimento de Estagiários - Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .login-container {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+  }
+  h1 {
+    text-align: center;
+    color: #35424a;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-top: 10px;
+  }
+  input[type="text"], input[type="password"] {
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  button {
+    background: #e8491d;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #333;
+  }
+  .register-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Login</h1>
+    <form id="loginForm">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" name="username" required>
+      
+      <label for="password">Senha:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <button type="submit">Entrar</button>
+    </form>
+    <p class="register-link">Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
+    <p id="errorMessage" class="error-message"></p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      // Simulação de autenticação
+      if (username === 'admin' && password === 'admin@123Mudar') {
+        // Login bem-sucedido para o administrador
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userRole', 'admin');
+        localStorage.setItem('userName', username);
+        window.location.href = 'admin/suporte/dashboard.html';
+      } else {
+        // Aqui você normalmente faria uma chamada para o backend para autenticar o usuário
+        // Por enquanto, vamos apenas simular um login de usuário comum
+        fetch('https://jsonplaceholder.typicode.com/users')
+          .then(response => response.json())
+          .then(users => {
+            const user = users.find(u => u.username.toLowerCase() === username.toLowerCase());
+            if (user) {
+              localStorage.setItem('isLoggedIn', 'true');
+              localStorage.setItem('userRole', 'student');
+              localStorage.setItem('userName', user.name);
+              window.location.href = 'dashboard_estudante.html';
+            } else {
+              document.getElementById('errorMessage').textContent = 'Usuário ou senha inválidos.';
+            }
+          })
+          .catch(error => {
+            console.error('Erro:', error);
+            document.getElementById('errorMessage').textContent = 'Erro ao fazer login. Tente novamente.';
+          });
+      }
+    });
+  </script>
+</body>
+</html>

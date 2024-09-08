@@ -1,0 +1,247 @@
+<html><head><base href="https://example.com/estagio-sistema/cadastro.html/index.html/admin/suporte">
+<title>Sistema de Recebimento de Estagiários - Painel de Suporte</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  .container {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+  }
+  header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header ul {
+    padding: 0;
+    list-style: none;
+  }
+  header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  .panel {
+    background: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .panel h2 {
+    color: #35424a;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 10px;
+  }
+  .form-group {
+    margin-bottom: 15px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="password"],
+  .form-group input[type="date"],
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  .btn {
+    display: inline-block;
+    background: #e8491d;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background: #333;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #35424a;
+    color: white;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Painel</span> de Suporte</h1>
+      </div>
+      <nav>
+        <ul>
+          <li class="current"><a href="index.html">Dashboard</a></li>
+          <li><a href="administradores.html">Administradores</a></li>
+          <li><a href="instituicoes.html">Instituições</a></li>
+          <li><a href="locais-estagio.html">Locais de Estágio</a></li>
+          <li><a href="logout.html">Sair</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="panel">
+      <h2>Bem-vindo ao Painel de Suporte</h2>
+      <p>Aqui você pode gerenciar administradores, instituições de ensino e locais de estágio.</p>
+    </div>
+
+    <div class="panel">
+      <h2>Cadastrar Novo Administrador</h2>
+      <form id="adminForm">
+        <div class="form-group">
+          <label for="adminName">Nome:</label>
+          <input type="text" id="adminName" name="adminName" required>
+        </div>
+        <div class="form-group">
+          <label for="adminEmail">Email:</label>
+          <input type="text" id="adminEmail" name="adminEmail" required>
+        </div>
+        <div class="form-group">
+          <label for="adminPassword">Senha:</label>
+          <input type="password" id="adminPassword" name="adminPassword" required>
+        </div>
+        <button type="submit" class="btn">Cadastrar Administrador</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Cadastrar Instituição de Ensino</h2>
+      <form id="instituicaoForm">
+        <div class="form-group">
+          <label for="instituicaoNome">Nome da Instituição:</label>
+          <input type="text" id="instituicaoNome" name="instituicaoNome" required>
+        </div>
+        <div class="form-group">
+          <label for="dataInicio">Data de Início do Vínculo:</label>
+          <input type="date" id="dataInicio" name="dataInicio" required>
+        </div>
+        <div class="form-group">
+          <label for="dataFim">Data de Término do Vínculo:</label>
+          <input type="date" id="dataFim" name="dataFim" required>
+        </div>
+        <button type="submit" class="btn">Cadastrar Instituição</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Cadastrar Local de Estágio</h2>
+      <form id="localEstagioForm">
+        <div class="form-group">
+          <label for="localNome">Nome do Local:</label>
+          <input type="text" id="localNome" name="localNome" required>
+        </div>
+        <button type="submit" class="btn">Cadastrar Local de Estágio</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Simulação de autenticação
+    function checkAuth() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (!isLoggedIn) {
+        window.location.href = 'login.html';
+      }
+    }
+
+    // Chamada da função de verificação de autenticação
+    checkAuth();
+
+    // Funções para manipulação de formulários
+    document.getElementById('adminForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('adminName').value;
+      const email = document.getElementById('adminEmail').value;
+      const password = document.getElementById('adminPassword').value;
+      
+      // Aqui você faria uma chamada AJAX para o backend para salvar os dados
+      console.log('Novo administrador:', { name, email, password });
+      alert('Administrador cadastrado com sucesso!');
+      this.reset();
+    });
+
+    document.getElementById('instituicaoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = document.getElementById('instituicaoNome').value;
+      const dataInicio = document.getElementById('dataInicio').value;
+      const dataFim = document.getElementById('dataFim').value;
+      
+      // Aqui você faria uma chamada AJAX para o backend para salvar os dados
+      console.log('Nova instituição:', { nome, dataInicio, dataFim });
+      alert('Instituição cadastrada com sucesso!');
+      this.reset();
+    });
+
+    document.getElementById('localEstagioForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = document.getElementById('localNome').value;
+      
+      // Aqui você faria uma chamada AJAX para o backend para salvar os dados
+      console.log('Novo local de estágio:', { nome });
+      alert('Local de estágio cadastrado com sucesso!');
+      this.reset();
+    });
+
+    // Simulação de login automático para teste
+    window.addEventListener('load', function() {
+      const testLogin = {
+        username: 'admin',
+        password: 'admin@123Mudar'
+      };
+      
+      // Aqui você faria uma verificação real com o backend
+      if (testLogin.username === 'admin' && testLogin.password === 'admin@123Mudar') {
+        localStorage.setItem('isLoggedIn', 'true');
+        console.log('Login de teste bem-sucedido');
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<html><head><base href="dashboard.html">
+<title>Dashboard - Coordenação de Estágio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  nav ul li {
+    display: inline;
+    margin-right: 10px;
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  h1, h2 {
+    color: #333;
+  }
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .dashboard-item {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .dashboard-item h3 {
+    margin-top: 0;
+    color: #e8491d;
+  }
+  .btn {
+    display: inline-block;
+    background-color: #e8491d;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #333;
+  }
+  #logoutBtn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Coordenação de Estágio - Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="#estagiarios">Estagiários</a></li>
+        <li><a href="#documentos">Documentos</a></li>
+        <li><a href="#relatorios">Relatórios</a></li>
+        <li><button id="logoutBtn">Sair</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Bem-vindo ao Painel de Controle</h2>
+    
+    <div class="dashboard-grid">
+      <div class="dashboard-item">
+        <h3>Estagiários Ativos</h3>
+        <p>Total: <span id="activeInterns">0</span></p>
+        <a href="#" class="btn">Ver Detalhes</a>
+      </div>
+      <div class="dashboard-item">
+        <h3>Documentos Pendentes</h3>
+        <p>Total: <span id="pendingDocuments">0</span></p>
+        <a href="#" class="btn">Gerenciar Documentos</a>
+      </div>
+      <div class="dashboard-item">
+        <h3>Estágios Concluídos</h3>
+        <p>Total: <span id="completedInternships">0</span></p>
+        <a href="#" class="btn">Ver Relatório</a>
+      </div>
+      <div class="dashboard-item">
+        <h3>Ações Rápidas</h3>
+        <ul>
+          <li><a href="#">Cadastrar Novo Estagiário</a></li>
+          <li><a href="#">Aprovar Documentos</a></li>
+          <li><a href="#">Gerar Relatório Mensal</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Verificar se o usuário está logado
+    function checkLogin() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const userRole = localStorage.getItem('userRole');
+      
+      if (!isLoggedIn || userRole !== 'coordenacao') {
+        window.location.href = 'index.html';
+      }
+    }
+
+    // Função para fazer logout
+    function logout() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('userRole');
+      window.location.href = 'index.html';
+    }
+
+    // Event listener para o botão de logout
+    document.getElementById('logoutBtn').addEventListener('click', logout);
+
+    // Simular dados para o dashboard
+    function loadDashboardData() {
+      document.getElementById('activeInterns').textContent = Math.floor(Math.random() * 100);
+      document.getElementById('pendingDocuments').textContent = Math.floor(Math.random() * 50);
+      document.getElementById('completedInternships').textContent = Math.floor(Math.random() * 200);
+    }
+
+    // Chamar funções quando a página carregar
+    window.onload = function() {
+      checkLogin();
+      loadDashboardData();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<html><head><base href="https://example.com/estagio-sistema/cadastro.html">
+<title>Cadastro - Sistema de Recebimento de Estagiários</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+  }
+  header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+  }
+  header a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  header ul {
+    padding: 0;
+    list-style: none;
+  }
+  header li {
+    display: inline;
+    padding: 0 20px 0 20px;
+  }
+  header #branding {
+    float: left;
+  }
+  header #branding h1 {
+    margin: 0;
+  }
+  header nav {
+    float: right;
+    margin-top: 10px;
+  }
+  .highlight, header .current a {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  .form-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  input[type="tel"],
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  button {
+    display: inline-block;
+    background: #e8491d;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #35424a;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+        <h1><span class="highlight">Sistema</span> de Estágios</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="current"><a href="cadastro.html">Novo Cadastro</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>Cadastro de Novo Estagiário</h2>
+    <div class="form-container">
+      <form id="cadastroForm">
+        <div class="form-group">
+          <label for="nome">Nome Completo:</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        <div class="form-group">
+          <label for="dataNascimento">Data de Nascimento:</label>
+          <input type="date" id="dataNascimento" name="dataNascimento" required>
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input type="tel" id="telefone" name="telefone" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required>
+        </div>
+        <div class="form-group">
+          <label for="instituicao">Instituição:</label>
+          <select id="instituicao" name="instituicao" required>
+            <option value="">Selecione a instituição</option>
+            <!-- Opções serão preenchidas via JavaScript -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="curso">Curso:</label>
+          <select id="curso" name="curso" required>
+            <option value="">Selecione o curso</option>
+            <!-- Opções serão preenchidas via JavaScript -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="periodo">Período:</label>
+          <input type="text" id="periodo" name="periodo" required>
+        </div>
+        <div class="form-group">
+          <label>Locais de Preferência para Estágio:</label>
+          <select id="local1" name="local1" required>
+            <option value="">Selecione o 1º local</option>
+            <!-- Opções serão preenchidas via JavaScript -->
+          </select>
+          <select id="local2" name="local2">
+            <option value="">Selecione o 2º local (opcional)</option>
+            <!-- Opções serão preenchidas via JavaScript -->
+          </select>
+          <select id="local3" name="local3">
+            <option value="">Selecione o 3º local (opcional)</option>
+            <!-- Opções serão preenchidas via JavaScript -->
+          </select>
+        </div>
+        <button type="submit">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Simulação de dados para as listas
+    const instituicoes = ['Universidade A', 'Faculdade B', 'Instituto C'];
+    const cursos = ['Administração', 'Direito', 'Engenharia', 'Medicina'];
+    const locais = ['Secretaria de Educação', 'Prefeitura', 'Hospital Municipal', 'Fórum'];
+
+    // Função para preencher os selects
+    function populateSelect(selectId, options) {
+      const select = document.getElementById(selectId);
+      options.forEach(option => {
+        const optionElement = document.createElement('option');
+        optionElement.textContent = option;
+        optionElement.value = option;
+        select.appendChild(optionElement);
+      });
+    }
+
+    // Preencher os selects quando a página carregar
+    document.addEventListener('DOMContentLoaded', function() {
+      populateSelect('instituicao', instituicoes);
+      populateSelect('curso', cursos);
+      populateSelect('local1', locais);
+      populateSelect('local2', locais);
+      populateSelect('local3', locais);
+
+      // Adicionar evento de submit ao formulário
+      document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Aqui você pode adicionar a lógica para enviar os dados para o servidor
+        console.log('Formulário enviado!');
+        alert('Cadastro realizado com sucesso! Você será redirecionado para a página de login.');
+        // Redirecionar para a página de login após o cadastro
+        window.location.href = 'login.html';
+      });
+    });
+  </script>
+</body>
+</html>
