@@ -1,4 +1,4 @@
-<html><head><base href="dashboard.html">
+<html><head>
 <title>Dashboard - Coordenação de Estágio</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,7 +130,7 @@
       const userRole = localStorage.getItem('userRole');
       
       if (!isLoggedIn || userRole !== 'coordenacao') {
-        window.location.href = 'index.html';
+    //    window.location.href = 'index.html';
       }
     }
 
@@ -138,7 +138,7 @@
     function logout() {
       localStorage.removeItem('isLoggedIn');
       localStorage.removeItem('userRole');
-      window.location.href = 'index.html';
+   //   window.location.href = 'index.html';
     }
 
     // Event listener para o botão de logout

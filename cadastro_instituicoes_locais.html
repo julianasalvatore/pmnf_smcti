@@ -1,4 +1,5 @@
-<html><head><base href="https://example.com/estagio-sistema/cadastro.html/index.html/admin/suporte">
+<html>
+  <head>
 <title>Sistema de Recebimento de Estagiários - Painel de Suporte</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -183,7 +184,7 @@
     function checkAuth() {
       const isLoggedIn = localStorage.getItem('isLoggedIn');
       if (!isLoggedIn) {
-        window.location.href = 'login.html';
+     //   window.location.href = 'login.html';
       }
     }
 
@@ -336,16 +337,16 @@
     atualizarListaLocaisEstagio();
 
     // Simulação de login automático para teste
-    window.addEventListener('load', function() {
-      const testLogin = {
-        username: 'admin',
-        password: 'admin@123Mudar'
+ //   window.addEventListener('load', function() {
+   //   const testLogin = {
+     //   username: 'admin',
+       // password: 'admin@123Mudar'
       };
       
       // Aqui você faria uma verificação real com o backend
-      if (testLogin.username === 'admin' && testLogin.password === 'admin@123Mudar') {
-        localStorage.setItem('isLoggedIn', 'true');
-        console.log('Login de teste bem-sucedido');
+    //  if (testLogin.username === 'admin' && testLogin.password === 'admin@123Mudar') {
+    //    localStorage.setItem('isLoggedIn', 'true');
+    //    console.log('Login de teste bem-sucedido');
       }
     });
   </script>
