@@ -1,4 +1,4 @@
-<html><head><base href="https://example.com/estagio-sistema/cadastro.html/index.html/admin/suporte/administradores.html">
+<html><head><!--base href="https://example.com/estagio-sistema/cadastro.html/index.html/admin/suporte/administradores.html"-->
 <title>Sistema de Recebimento de Estagiários - Gerenciamento de Administradores</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@
     color: #ffffff;
     padding-top: 30px;
     min-height: 70px;
-    border-bottom: #e8491d 3px solid;
+    border-bottom: #1b77cc 3px solid;
   }
   header a {
     color: #ffffff;
@@ -49,7 +49,7 @@
     margin-top: 10px;
   }
   .highlight, header .current a {
-    color: #e8491d;
+    color: #177b8d;
     font-weight: bold;
   }
   .panel {
@@ -82,7 +82,7 @@
   }
   .btn {
     display: inline-block;
-    background: #e8491d;
+    background: #10638a;
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
@@ -168,15 +168,15 @@
   <header>
     <div class="container">
       <div id="branding">
-        <h1><span class="highlight">Gerenciamento</span> de Administradores</h1>
+        <h1><span class="highlight"></span>Gerenciamento de Administradores</h1>
       </div>
       <nav>
         <ul>
-          <li><a href="../index.html">Dashboard</a></li>
+          <li><a href="index.html">Inicio</a></li>
           <li class="current"><a href="administradores.html">Administradores</a></li>
-          <li><a href="../instituicoes.html">Instituições</a></li>
-          <li><a href="../locais-estagio.html">Locais de Estágio</a></li>
-          <li><a href="../logout.html">Sair</a></li>
+          <li><a href="#">Instituições</a></li>
+          <li><a href="#">Locais de Estágio</a></li>
+          <li><a href="logout.html">Sair</a></li>
         </ul>
       </nav>
     </div>
@@ -202,11 +202,8 @@
           <label for="adminSetor">Setor:</label>
           <select id="adminSetor" name="adminSetor" required>
             <option value="">Selecione um setor</option>
-            <option value="RH">Recursos Humanos</option>
-            <option value="TI">Tecnologia da Informação</option>
-            <option value="Financeiro">Financeiro</option>
-            <option value="Administrativo">Administrativo</option>
             <option value="Coordenação de Estágio">Coordenação de Estágio</option>
+            <option value="Suporte Técnico">Suporte Técnico</option>
           </select>
         </div>
         <button type="submit" class="btn">Cadastrar Administrador</button>
@@ -242,7 +239,7 @@
     function checkAuth() {
       const isLoggedIn = localStorage.getItem('isLoggedIn');
       if (!isLoggedIn) {
-        window.location.href = '../login.html';
+     //   window.location.href = '../login.html';
       }
     }
 

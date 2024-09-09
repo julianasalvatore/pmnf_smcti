@@ -1,354 +1,320 @@
 <html>
   <head>
-<title>Sistema de Recebimento de Estagiários - Painel de Suporte</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  .container {
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-    padding: 20px;
-  }
-  header {
-    background: #35424a;
-    color: #ffffff;
-    padding-top: 30px;
-    min-height: 70px;
-    border-bottom: #1da8e8 3px solid;
-  }
-  header a {
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 16px;
-  }
-  header ul {
-    padding: 0;
-    list-style: none;
-  }
-  header li {
-    display: inline;
-    padding: 0 20px 0 20px;
-  }
-  header #branding {
-    float: left;
-  }
-  header #branding h1 {
-    margin: 0;
-  }
-  header nav {
-    float: right;
-    margin-top: 10px;
-  }
-  .highlight, header .current a {
-    color: #e8491d;
-    font-weight: bold;
-  }
-  .panel {
-    background: #fff;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  .panel h2 {
-    color: #35424a;
-    border-bottom: 1px solid #e8e8e8;
-    padding-bottom: 10px;
-  }
-  .form-group {
-    margin-bottom: 15px;
-  }
-  .form-group label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  .form-group input[type="text"],
-  .form-group input[type="password"],
-  .form-group input[type="date"],
-  .form-group select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  .btn {
-    display: inline-block;
-    background: #e8491d;
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .btn:hover {
-    background: #333;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  table, th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-  }
-  th {
-    background-color: #35424a;
-    color: white;
-  }
-  .action-btn {
-    padding: 5px 10px;
-    margin-right: 5px;
-    cursor: pointer;
-  }
-  .edit-btn {
-    background-color: #ffa500;
-    color: white;
-    border: none;
-    border-radius: 3px;
-  }
-  .delete-btn {
-    background-color: #ff4136;
-    color: white;
-    border: none;
-    border-radius: 3px;
-  }
-</style>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <div id="branding">
-        <h1><span class="highlight">Painel</span> de Suporte</h1>
+    <title>Painel de Suporte</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      .container {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        padding: 20px;
+      }
+      header {
+        background: #35424a;
+        color: #ffffff;
+        padding-top: 30px;
+        min-height: 70px;
+        border-bottom: #1da8e8 3px solid;
+      }
+      header a {
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+      header ul {
+        padding: 0;
+        list-style: none;
+      }
+      header li {
+        display: inline;
+        padding: 0 20px 0 20px;
+      }
+      header #branding {
+        float: left;
+      }
+      header #branding h1 {
+        margin: 0;
+      }
+      header nav {
+        float: right;
+        margin-top: 10px;
+      }
+      .highlight, header .current a {
+        color: #3498db;
+        font-weight: bold;
+      }
+      .panel {
+        background: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      }
+      .panel h2 {
+        color: #35424a;
+        border-bottom: 1px solid #e8e8e8;
+        padding-bottom: 10px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input[type="text"],
+      .form-group input[type="password"],
+      .form-group input[type="date"],
+      .form-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+      .btn {
+        display: inline-block;
+        background: #308be0;
+        color: #ffffff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: #333;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+      table, th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      th {
+        background-color: #35424a;
+        color: white;
+      }
+      .action-btn {
+        padding: 5px 10px;
+        margin-right: 5px;
+        cursor: pointer;
+      }
+      .edit-btn {
+        background-color: #ffa500;
+        color: white;
+        border: none;
+        border-radius: 3px;
+      }
+      .delete-btn {
+        background-color: #ff4136;
+        color: white;
+        border: none;
+        border-radius: 3px;
+      }
+      
+      /* Estilo para o dropdown */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 10 Geral;
+      }
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      .dropdown:hover .dropbtn {
+        background-color: #1da8e8;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1><span class="highlight"></span>Painel da Coordenação de Estágio</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li class="current"><a href="#">Cadastro de Instituições de Ensino</a></li>
+            <li><a href="painel de controle - estagio.html">Alunos</a></li>
+            <li><a href="cadastro_instituicoes_locais.html">Instituições</a></li>
+            <li><a href="locais-estagio.html">Locais de Estágio</a></li>
+            <li class="dropdown">
+              <a href="javascript:void(0)" class="dropbtn">Relatórios</a>
+              <div class="dropdown-content">
+                <a href="visao_geral.html">Visão Geral</a>
+                <a href="#">Relatório 2</a>
+                <a href="#">Relatório 3</a>
+              </div>
+            </li>
+            <li><a href="logout.html">Sair</a></li>
+          </ul>
+        </nav>
       </div>
-      <nav>
-        <ul>
-          <li class="current"><a href="index.html">Dashboard</a></li>
-          <li><a href="administradores.html">Administradores</a></li>
-          <li><a href="instituicoes.html">Instituições</a></li>
-          <li><a href="locais-estagio.html">Locais de Estágio</a></li>
-          <li><a href="logout.html">Sair</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <div class="container">
-    <div class="panel">
-      <h2>Cadastrar Instituição de Ensino</h2>
-      <form id="instituicaoForm">
-        <div class="form-group">
-          <label for="instituicaoNome">Nome da Instituição:</label>
-          <input type="text" id="instituicaoNome" name="instituicaoNome" required>
-        </div>
-        <div class="form-group">
-          <label for="dataInicio">Data de Início do Vínculo:</label>
-          <input type="date" id="dataInicio" name="dataInicio" required>
-        </div>
-        <div class="form-group">
-          <label for="dataFim">Data de Término do Vínculo:</label>
-          <input type="date" id="dataFim" name="dataFim" required>
-        </div>
-        <button type="submit" class="btn">Cadastrar Instituição</button>
-      </form>
-      <div id="instituicoesLista"></div>
+    <div class="container">
+      <div class="panel">
+        <h2>Cadastrar Instituição de Ensino</h2>
+        <form id="instituicaoForm">
+          <div class="form-group">
+            <label for="instituicaoNome">Nome da Instituição:</label>
+            <input type="text" id="instituicaoNome" name="instituicaoNome" required>
+          </div>
+          <div class="form-group">
+            <label for="dataInicio">Data de Início do Vínculo:</label>
+            <input type="date" id="dataInicio" name="dataInicio" required>
+          </div>
+          <div class="form-group">
+            <label for="dataFim">Data de Término do Vínculo:</label>
+            <input type="date" id="dataFim" name="dataFim" required>
+          </div>
+          <button type="submit" class="btn">Cadastrar Instituição</button>
+        </form>
+        <div id="instituicoesLista"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Cadastrar Local de Estágio</h2>
+        <form id="localEstagioForm">
+          <div class="form-group">
+            <label for="localNome">Nome do Local:</label>
+            <input type="text" id="localNome" name="localNome" required>
+          </div>
+          <button type="submit" class="btn">Cadastrar Local de Estágio</button>
+        </form>
+        <div id="locaisEstagioLista"></div>
+      </div>
     </div>
 
-    <div class="panel">
-      <h2>Cadastrar Local de Estágio</h2>
-      <form id="localEstagioForm">
-        <div class="form-group">
-          <label for="localNome">Nome do Local:</label>
-          <input type="text" id="localNome" name="localNome" required>
-        </div>
-        <button type="submit" class="btn">Cadastrar Local de Estágio</button>
-      </form>
-      <div id="locaisEstagioLista"></div>
-    </div>
-  </div>
-
-  <script>
-    // Simulação de autenticação
-    function checkAuth() {
-      const isLoggedIn = localStorage.getItem('isLoggedIn');
-      if (!isLoggedIn) {
+    <script>
+      // Simulação de autenticação
+      function checkAuth() {
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
      //   window.location.href = 'login.html';
+        }
       }
-    }
 
-    // Chamada da função de verificação de autenticação
-    checkAuth();
+      // Chamada da função de verificação de autenticação
+      checkAuth();
 
-    // Armazenamento local para instituições e locais de estágio
-    let instituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
-    let locaisEstagio = JSON.parse(localStorage.getItem('locaisEstagio')) || [];
+      // Armazenamento local para instituições e locais de estágio
+      let instituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
+      let locaisEstagio = JSON.parse(localStorage.getItem('locaisEstagio')) || [];
 
-    // Funções para manipulação de formulários
-    document.getElementById('instituicaoForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nome = document.getElementById('instituicaoNome').value;
-      const dataInicio = document.getElementById('dataInicio').value;
-      const dataFim = document.getElementById('dataFim').value;
-      
-      const novaInstituicao = { id: Date.now(), nome, dataInicio, dataFim };
-      instituicoes.push(novaInstituicao);
-      localStorage.setItem('instituicoes', JSON.stringify(instituicoes));
-      
-      alert('Instituição cadastrada com sucesso!');
-      this.reset();
-      atualizarListaInstituicoes();
-    });
-
-    document.getElementById('localEstagioForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const nome = document.getElementById('localNome').value;
-      
-      const novoLocal = { id: Date.now(), nome };
-      locaisEstagio.push(novoLocal);
-      localStorage.setItem('locaisEstagio', JSON.stringify(locaisEstagio));
-      
-      alert('Local de estágio cadastrado com sucesso!');
-      this.reset();
-      atualizarListaLocaisEstagio();
-    });
-
-    function atualizarListaInstituicoes() {
-      const lista = document.getElementById('instituicoesLista');
-      lista.innerHTML = '<h3>Instituições Cadastradas</h3>';
-      if (instituicoes.length === 0) {
-        lista.innerHTML += '<p>Nenhuma instituição cadastrada.</p>';
-        return;
-      }
-      let tabela = '<table><tr><th>Nome</th><th>Início</th><th>Término</th><th>Ações</th></tr>';
-      instituicoes.forEach(inst => {
-        tabela += `<tr>
-          <td>${inst.nome}</td>
-          <td>${inst.dataInicio}</td>
-          <td>${inst.dataFim}</td>
-          <td>
-            <button class="action-btn edit-btn" onclick="editarInstituicao(${inst.id})">Editar</button>
-            <button class="action-btn delete-btn" onclick="excluirInstituicao(${inst.id})">Excluir</button>
-          </td>
-        </tr>`;
+      // Funções para manipulação de formulários
+      document.getElementById('instituicaoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nome = document.getElementById('instituicaoNome').value;
+        const dataInicio = document.getElementById('dataInicio').value;
+        const dataFim = document.getElementById('dataFim').value;
+        
+        const novaInstituicao = { id: Date.now(), nome, dataInicio, dataFim };
+        instituicoes.push(novaInstituicao);
+        localStorage.setItem('instituicoes', JSON.stringify(instituicoes));
+        
+        alert('Instituição cadastrada com sucesso!');
+        this.reset();
+        atualizarListaInstituicoes();
       });
-      tabela += '</table>';
-      lista.innerHTML += tabela;
-    }
 
-    function atualizarListaLocaisEstagio() {
-      const lista = document.getElementById('locaisEstagioLista');
-      lista.innerHTML = '<h3>Locais de Estágio Cadastrados</h3>';
-      if (locaisEstagio.length === 0) {
-        lista.innerHTML += '<p>Nenhum local de estágio cadastrado.</p>';
-        return;
-      }
-      let tabela = '<table><tr><th>Nome</th><th>Ações</th></tr>';
-      locaisEstagio.forEach(local => {
-        tabela += `<tr>
-          <td>${local.nome}</td>
-          <td>
-            <button class="action-btn edit-btn" onclick="editarLocalEstagio(${local.id})">Editar</button>
-            <button class="action-btn delete-btn" onclick="excluirLocalEstagio(${local.id})">Excluir</button>
-          </td>
-        </tr>`;
+      document.getElementById('localEstagioForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nome = document.getElementById('localNome').value;
+        
+        const novoLocal = { id: Date.now(), nome };
+        locaisEstagio.push(novoLocal);
+        localStorage.setItem('locaisEstagio', JSON.stringify(locaisEstagio));
+        
+        alert('Local de estágio cadastrado com sucesso!');
+        this.reset();
+        atualizarListaLocaisEstagio();
       });
-      tabela += '</table>';
-      lista.innerHTML += tabela;
-    }
 
-    function editarInstituicao(id) {
-      const instituicao = instituicoes.find(i => i.id === id);
-      if (instituicao) {
+      function atualizarListaInstituicoes() {
+        const lista = document.getElementById('instituicoesLista');
+        lista.innerHTML = '<h3>Instituições Cadastradas</h3>';
+        instituicoes.forEach(instituicao => {
+          lista.innerHTML += `
+            <p>Nome: ${instituicao.nome} | Início: ${instituicao.dataInicio} | Fim: ${instituicao.dataFim}
+              <button class="action-btn edit-btn" onclick="editarInstituicao(${instituicao.id})">Editar</button>
+              <button class="action-btn delete-btn" onclick="deletarInstituicao(${instituicao.id})">Excluir</button>
+            </p>
+          `;
+        });
+      }
+
+      function atualizarListaLocaisEstagio() {
+        const lista = document.getElementById('locaisEstagioLista');
+        lista.innerHTML = '<h3>Locais de Estágio Cadastrados</h3>';
+        locaisEstagio.forEach(local => {
+          lista.innerHTML += `
+            <p>Nome: ${local.nome}
+              <button class="action-btn edit-btn" onclick="editarLocal(${local.id})">Editar</button>
+              <button class="action-btn delete-btn" onclick="deletarLocal(${local.id})">Excluir</button>
+            </p>
+          `;
+        });
+      }
+
+      function editarInstituicao(id) {
+        const instituicao = instituicoes.find(inst => inst.id === id);
         document.getElementById('instituicaoNome').value = instituicao.nome;
         document.getElementById('dataInicio').value = instituicao.dataInicio;
         document.getElementById('dataFim').value = instituicao.dataFim;
-        
-        // Alterar o formulário para modo de edição
-        const form = document.getElementById('instituicaoForm');
-        form.onsubmit = function(e) {
-          e.preventDefault();
-          instituicao.nome = document.getElementById('instituicaoNome').value;
-          instituicao.dataInicio = document.getElementById('dataInicio').value;
-          instituicao.dataFim = document.getElementById('dataFim').value;
-          
-          localStorage.setItem('instituicoes', JSON.stringify(instituicoes));
-          alert('Instituição atualizada com sucesso!');
-          this.reset();
-          atualizarListaInstituicoes();
-          
-          // Restaurar o formulário para modo de cadastro
-          form.onsubmit = null;
-        };
       }
-    }
 
-    function excluirInstituicao(id) {
-      if (confirm('Tem certeza que deseja excluir esta instituição?')) {
-        instituicoes = instituicoes.filter(i => i.id !== id);
+      function deletarInstituicao(id) {
+        instituicoes = instituicoes.filter(inst => inst.id !== id);
         localStorage.setItem('instituicoes', JSON.stringify(instituicoes));
         atualizarListaInstituicoes();
       }
-    }
 
-    function editarLocalEstagio(id) {
-      const local = locaisEstagio.find(l => l.id === id);
-      if (local) {
+      function editarLocal(id) {
+        const local = locaisEstagio.find(l => l.id === id);
         document.getElementById('localNome').value = local.nome;
-        
-        // Alterar o formulário para modo de edição
-        const form = document.getElementById('localEstagioForm');
-        form.onsubmit = function(e) {
-          e.preventDefault();
-          local.nome = document.getElementById('localNome').value;
-          
-          localStorage.setItem('locaisEstagio', JSON.stringify(locaisEstagio));
-          alert('Local de estágio atualizado com sucesso!');
-          this.reset();
-          atualizarListaLocaisEstagio();
-          
-          // Restaurar o formulário para modo de cadastro
-          form.onsubmit = null;
-        };
       }
-    }
 
-    function excluirLocalEstagio(id) {
-      if (confirm('Tem certeza que deseja excluir este local de estágio?')) {
+      function deletarLocal(id) {
         locaisEstagio = locaisEstagio.filter(l => l.id !== id);
         localStorage.setItem('locaisEstagio', JSON.stringify(locaisEstagio));
         atualizarListaLocaisEstagio();
       }
-    }
 
-    // Inicializar listas
-    atualizarListaInstituicoes();
-    atualizarListaLocaisEstagio();
-
-    // Simulação de login automático para teste
- //   window.addEventListener('load', function() {
-   //   const testLogin = {
-     //   username: 'admin',
-       // password: 'admin@123Mudar'
-      };
-      
-      // Aqui você faria uma verificação real com o backend
-    //  if (testLogin.username === 'admin' && testLogin.password === 'admin@123Mudar') {
-    //    localStorage.setItem('isLoggedIn', 'true');
-    //    console.log('Login de teste bem-sucedido');
-      }
-    });
-  </script>
-</body>
+      // Atualizar listas ao carregar a página
+      atualizarListaInstituicoes();
+      atualizarListaLocaisEstagio();
+    </script>
+  </body>
 </html>

@@ -39,7 +39,7 @@
     border-radius: 3px;
   }
   button {
-    background: #e8491d;
+    background: #175c9c;
     color: #fff;
     padding: 10px;
     border: none;
@@ -59,13 +59,27 @@
     text-align: center;
     margin-top: 10px;
   }
+
+
+  img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  margin: 0;
+}
+
 </style>
 </head>
 <body>
   <div class="login-container">
+
+    <a href="https://developer.mozilla.org"><img src="https://smcti.novafriburgo.rj.gov.br/view/img/PDEE2.webp" alt="logo pdee" />
+    </a>
+
     <h1>Login</h1>
     <form id="loginForm">
-      <label for="username">Usuário:</label>
+      <label for="username">Usuário (e-mail):</label>
       <input type="text" id="username" name="username" required>
       
       <label for="password">Senha:</label>
