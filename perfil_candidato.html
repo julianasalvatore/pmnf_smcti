@@ -1,0 +1,36 @@
+// No perfil_candidato.html
+document.addEventListener('DOMContentLoaded', () => {
+  fetch('/api/profile', {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('studentName').textContent = data.name;
+    document.getElementById('studentId').textContent = data.id;
+    document.getElementById('studentCourse').textContent = data.course;
+    document.getElementById('statusDescription').textContent = `Status atual: ${data.status}`;
+    document.getElementById('statusProgress').style.width = `${data.statusPercentage}%`;
+    document.getElementById('queuePosition').textContent = data.queuePosition;
+
+    const documentList = document.getElementById('documentList');
+    data.documents.forEach(doc => {
+      const docElement = document.createElement('div');
+      docElement.className = 'document-item';
+      docElement.innerHTML = `
+        <span>${doc.name} - <em>${doc.status}</em></span>
+        <button onclick="viewDocument('${doc.name}')">Visualizar</button>
+      `;
+      documentList.appendChild(docElement);
+    });
+  })
+  .catch(error => {
+    console.error('Erro:', error);
+  });
+});
+
+// Função para visualizar documento (simulada)
+function viewDocument(docName) {
+  alert(`Visualizando documento: ${docName}`);
+}

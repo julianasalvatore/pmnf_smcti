@@ -156,7 +156,7 @@
         <div class="form-group">
           <label>Locais de Preferência para Estágio:
           <br>
-          <i>*Você será locado no setor que estiver precisando de estágiarios, mas havendo a possibilidade, te alocaremos em um dos 3 locais sugeridos</i>
+          <i>*Você será locado no setor que estiver precisando de estagiários, mas havendo a possibilidade, te alocaremos em um dos 3 locais sugeridos</i>
         </label>
           <select id="local1" name="local1" required>
             <option value="">Selecione o 1º local</option>
@@ -181,6 +181,7 @@
     function atualizarSelects() {
         const instituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
         const locaisEstagio = JSON.parse(localStorage.getItem('locaisEstagio')) || [];
+        const cursos = JSON.parse(localStorage.getItem('cursos')) || [];
 
         // Atualiza o select de instituições
         const instituicaoSelect = document.getElementById('instituicao');
@@ -190,6 +191,16 @@
             optionElement.textContent = inst.nome;
             optionElement.value = inst.id;
             instituicaoSelect.appendChild(optionElement);
+        });
+
+        // Atualiza o select de cursos
+        const cursoSelect = document.getElementById('curso');
+        cursoSelect.innerHTML = '<option value="" disabled selected>Selecione o curso</option>';
+        cursos.forEach(curso => {
+            const optionElement = document.createElement('option');
+            optionElement.textContent = curso.nome;
+            optionElement.value = curso.id;
+            cursoSelect.appendChild(optionElement);
         });
 
         // Atualiza o select de locais de estágio
@@ -233,19 +244,6 @@
 
     // Atualiza os selects ao carregar a página
     document.addEventListener('DOMContentLoaded', atualizarSelects);
-
-    // Atualiza os selects quando houver mudança em outros locais
-    window.addEventListener('atualizar', atualizarSelects);
-
-    // Adicionar evento de submit ao formulário
-    document.getElementById('cadastroForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        // Aqui você pode adicionar a lógica para enviar os dados para o servidor
-        console.log('Formulário enviado!');
-        alert('Cadastro realizado com sucesso! Você será redirecionado para a página de login.');
-        // Redirecionar para a página de login após o cadastro
-        window.location.href = 'login.html';
-    });
   </script>
 </body>
 </html>

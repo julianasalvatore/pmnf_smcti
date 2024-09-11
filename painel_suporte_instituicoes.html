@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Painel de Cursos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <!-- Mesmo cabeçalho com navegação -->
+    </header>
+
+    <div class="container">
+        <div class="panel">
+            <h2>Cadastrar Curso</h2>
+            <form id="cursoForm">
+                <div class="form-group">
+                    <label for="cursoNome">Nome do Curso:</label>
+                    <input type="text" id="cursoNome" name="cursoNome" required>
+                </div>
+                <button type="submit" class="btn">Cadastrar Curso</button>
+            </form>
+            <div id="cursosLista"></div>
+        </div>
+    </div>
+
+    <script src="cursos.js"></script>
+</body>
+</html>
